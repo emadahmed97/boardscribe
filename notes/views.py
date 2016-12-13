@@ -36,22 +36,19 @@ def index(request):
     saved = False
 
     if request.method == "POST":
-        form = NoteForm(request.POST) 
+        form = NoteForm(request.POST,request.FILES) 
         if form.is_valid():
             print "valid"
             note = form.save(commit=False)
             #post.author = request.user
             note.pub_date =  timezone.now()
-            print request.POST.get('classname')
             note.classname = Classes.objects.get(title=str(request.POST.get('classname')))
             note.save()
-            saved = True
             return redirect('/')
         else:
             print "form is not valid"
 
     else:
-        print "invalid"
         form = NoteForm()
 
     context = {'classes_list': classwise_notes,'form': form,'saved':saved}
@@ -74,23 +71,22 @@ def detail(request,notes_name_slug):
     
     saved = False
 
+    saved = False
+
     if request.method == "POST":
-        form = NoteForm(request.POST) 
+        form = NoteForm(request.POST,request.FILES) 
         if form.is_valid():
             print "valid"
             note = form.save(commit=False)
             #post.author = request.user
             note.pub_date =  timezone.now()
-            print request.POST.get('classname')
-            note.classname = request.POST.get('classname')
+            note.classname = Classes.objects.get(title=str(request.POST.get('classname')))
             note.save()
-            saved = True
             return redirect('/')
         else:
             print "form is not valid"
 
     else:
-        print "invalid"
         form = NoteForm()
 
 

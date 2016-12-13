@@ -45,7 +45,7 @@ class Notes(models.Model):
                         #self.slug = slugify(self.name)
             self.slug = slugify(self.title)
             x = self.title
-            self.title = x.capitalize()
+            self.title = x.title()
             super(Notes, self).save(*args, **kwargs)
 
     def __str__(self):

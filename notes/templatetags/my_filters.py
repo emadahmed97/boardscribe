@@ -32,7 +32,9 @@ def has_group(user, group_name):
 @register.filter(name='notedate')
 def notedate(dict, index):
 	try:
-		date = Notes.objects.get(title=index.title())
+		print index.title()
+		x = index.title().replace("-"," ")
+		date = Notes.objects.get(title=x)
 		return date.pub_date
 		
 	except:
