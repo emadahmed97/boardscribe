@@ -2,11 +2,19 @@ from django.conf.urls import url
 
 from . import views
 
+from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+
 app_name = 'notes'
 
 urlpatterns = [
     # ex: /polls/
     url(r'^$', views.index, name='index'),
-    url(r'^(?P<article_id>[0-99]+)/$', views.detail, name='detail')
+    url(r'^notes/(?P<notes_name_slug>[\w\-]+)/$', views.detail, name='articles')
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
