@@ -32,8 +32,8 @@ class Classes(models.Model):
 class Notes(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200,null=True, blank=True)
-    note_text = models.TextField(max_length=2000, blank=True, )
-    pub_date = models.DateTimeField('date published', default="")
+    note_text = models.TextField(max_length=2000, default="Note has not rendered yet", blank=True)
+    pub_date = models.DateTimeField('date published')
     classname = models.ForeignKey(Classes, on_delete=models.CASCADE, null=True,)
     note_image = models.FileField(null=True, blank=True)    # add image field to this later
     slug = models.SlugField(unique=True,null=True,blank=True,max_length=255);
