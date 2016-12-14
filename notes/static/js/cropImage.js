@@ -1,9 +1,5 @@
 (function () {
-  // image to be recognized
-  //const imageUrl = 'http://static1.squarespace.com/static/53960bf8e4b09069522f83c7/53baead5e4b0802f8dc8a60f/5665eacd841aba32da49f57b/1449520414575/?format=1000w';
-  //const imageUrl = 'http://eddie-moore.com/wpfiles/wp-content/uploads/2013/05/hello_world.jpg';
-  //const imageUrl = 'http://crm2.univ-lorraine.fr/pages_perso/Aubert/FTenglish/conv2d/hello.jpg';
-  const spaceImage = 'https://www.tetley.co.uk/images/librariesprovider6/default-album/white-space.png?sfvrsn=0&MaxWidth=333&MaxHeight=&ScaleUp=false&Quality=High&Method=ResizeFitToAreaArguments&Signature=E181235533D33E367B6894D66ED0078AAC61270C';
+  const imageUrl = 'test';
   Tesseract.recognize(imageUrl)
     .then(result => {
       const symbolsArray = result.symbols.map(symbol => symbol.bbox);

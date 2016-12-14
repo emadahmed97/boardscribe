@@ -77,12 +77,14 @@
                 </div>
 
 
-                <div class="note-lines"></div>
                 <ul class="note-list">
                   <li>{{note.note_text}}</li>
-                    <img src="{{note.note_image.url}}">                 
-      
                 </ul>
+                <br>
+                <h5>Actual Image: </h5>
+                <div>
+                    <img src="{{note.note_image.url}}" style="max-width: 99%">
+                </div>
 
                 <div class="fb-comments " data-href="{{request.build_absolute_url}}" data-numposts="5"></div>
 

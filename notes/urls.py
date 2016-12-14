@@ -9,10 +9,8 @@ from django.conf.urls.static import static
 app_name = 'notes'
 
 urlpatterns = [
-    # ex: /polls/
     url(r'^$', views.index, name='index'),
     url(r'^notes/(?P<notes_name_slug>[\w\-]+)/$', views.detail, name='articles')
-
 ]
 
 if settings.DEBUG:
