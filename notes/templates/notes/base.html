@@ -192,7 +192,7 @@
                     {% for note in notes %}
                     <a href="notes/{{note}}">{{ classes_list|lookup:note }}</a>
                     {% endfor %}
-                    </li>  
+                    </li>
 
                     <li><a><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary "> Add a Note to {{class}} </button></a></li>
 
@@ -212,6 +212,11 @@
             {% empty %}
             <li>Sorry, You have no classes, please contact your administrator</li>
             {% endfor %}
+
+           <li>
+            <a href="about/"><i></i>About Us</a>
+           </li>
+
 
             {% endblock %}
 
@@ -264,7 +269,7 @@
                         
 
                     {% for note in notes %}
-                      <li><a href="notes/{{note}}">-{{ classes_list|lookup:note }}</a>  &nbsp;&nbsp;&nbsp; on: {{ classes_list|notedate:note.title }} </li> 
+                      <li><a href="notes/{{note}}">-{{ classes_list|lookup:note }}</a>  &nbsp;&nbsp;&nbsp; on: {{ classes_list|notedate:note.title }} </li>
                     {% endfor %}
 
 
@@ -420,6 +425,9 @@
     <script src="{% static 'js/plugins/morris/raphael.min.js' %}"></script>
     <script src="{% static 'js/plugins/morris/morris.min.js' %}"></script>
     <script src="{% static 'js/plugins/morris/morris-data.js' %}"></script>
+    <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+    <script src="{% static 'js/cropImage.js' %}"></script>
+
 
 </body>
 

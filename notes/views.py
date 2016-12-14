@@ -191,3 +191,17 @@ def new_note(request):
         image = request.POST.get('password')
     else:
         print "hello"
+
+def about(request):
+    allClasses = Classes.objects.order_by('-title')[:10]
+    classwise_notes = {}
+    for subject in allClasses:
+        notes = Notes.objects.filter(classname=subject).values()
+        note_list = []
+        for each_note in notes:
+            note_list.append(each_note.get('slug'))
+
+        classwise_notes[str(subject)] = note_list
+
+    context = {'classes_list': classwise_notes}
+    return render(request, 'notes/about.html', context)
